@@ -11,4 +11,7 @@ public interface BoardMapper {
 
     /* 게시글 목록 조회 */
     List<BoardVo> selectBoardList(CmmnVo cmmnVo);
+
+    /* 게시글 등록 */
+    int insertBoard(BoardVo boardVo);
 }

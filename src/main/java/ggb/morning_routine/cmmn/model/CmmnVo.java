@@ -15,6 +15,6 @@ public class CmmnVo {
     private int lastRecordIndex;  // 마지막 게시물 인덱스
 
     /* 테이블 공통 필드 */
-    private String REG_DATE;                //등록일시
-    private String MOD_DATE;                //수정일시
+    private String regDate;                //등록일시
+    private String modDate;                //수정일시
 }

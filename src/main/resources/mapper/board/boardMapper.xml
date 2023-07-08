@@ -9,5 +9,36 @@
         SELECT 1 FROM DUAL
     </select>
 
+    <!-- 게시글 등록 -->
+    <insert id="insertBoard" parameterType="BoardVo">
+        <selectKey keyProperty="morningRoutineSno" resultType="int" order="BEFORE">
+            SELECT MORNING_ROUTINE_SNO_SEQ.NEXTVAL FROM DUAL
+        </selectKey>
+        /* 게시글 등록 */
+        INSERT INTO MORNING_ROUTINE_INFO
+            (
+                MORNING_ROUTINE_SNO
+              , RECORD_DATE
+              , BEDTIME
+              , WAKE_UP_TIME
+              , WALK_YN
+              , SUCCESS_FAILURE_YN
+              , NOTE
+              , GRATITUDE_JOURNAL
+              , REG_DATE
+            )
+            VALUES
+            (
+                #{morningRoutineSno}
+              , #{recordDate}
+              , #{bedtime}
+              , #{wakeUpTime}
+              , #{walkYn}
+              , #{successFailureYn}
+              , #{note}
+              , #{gratitudeJournal}
+              , SYSDATE
+            )
+    </insert>
 
 </mapper>
