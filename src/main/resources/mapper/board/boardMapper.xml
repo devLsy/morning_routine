@@ -20,22 +20,28 @@
                 MORNING_ROUTINE_SNO
               , RECORD_DATE
               , BEDTIME
+              , SCHEDULED_WAKE_UP_TIME
               , WAKE_UP_TIME
               , WALK_YN
               , SUCCESS_FAILURE_YN
               , NOTE
+              <if test="gratitudeJournal != null and gratitudeJournal != ''">
               , GRATITUDE_JOURNAL
+              </if>
             )
             VALUES
             (
                 #{morningRoutineSno}
-              , #{recordDate}
-              , #{bedtime}
+              , TO_DATE(#{recordDate}, 'YYYYMMDD HH24:MI:SS')
+              , TO_DATE(#{bedtime}, 'YYYYMMDD HH24:MI:SS')
+              , TO_DATE(#{scheduledWakeUpTime}, 'YYYYMMDD HH24:MI:SS')
               , #{wakeUpTime}
               , #{walkYn}
               , #{successFailureYn}
               , #{note}
+            <if test="gratitudeJournal != null and gratitudeJournal != ''">
               , #{gratitudeJournal}
+            </if>
             )
     </insert>
 
