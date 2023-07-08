@@ -8,7 +8,7 @@
         /* 게시글 목록 조회 */
         SELECT ROW_NUMBER() over (order by REG_DATE DESC) AS no /* rownum */
              , MORNING_ROUTINE_SNO AS morningRoutineSno         /* 순번(시퀀스: MORNING_ROUTINE_SNO_SEQ) */
-             , TO_CHAR(RECORD_DATE, 'YYYY-MM-DD') AS recordDate                        /* 기록날짜 */
+             , TO_CHAR(RECORD_DATE, 'YYYY-MM-DD') || ' ' ||TO_CHAR(RECORD_DATE, 'DAY') AS recordDate                        /* 기록날짜 */
              , TO_CHAR(BEDTIME, 'HH24:MI') AS bedtime                               /* 전날 취침시간 */
              , TO_CHAR(SCHEDULED_WAKE_UP_TIME, 'HH24:MI') AS scheduledWakeUpTime    /* 기상 예전 시간 */
              , TO_CHAR(WAKE_UP_TIME, 'HH24:MI') AS wakeUpTime                       /* 기상 시간 */
