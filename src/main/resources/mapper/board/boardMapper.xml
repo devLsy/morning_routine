@@ -25,7 +25,6 @@
               , SUCCESS_FAILURE_YN
               , NOTE
               , GRATITUDE_JOURNAL
-              , REG_DATE
             )
             VALUES
             (
@@ -37,7 +36,6 @@
               , #{successFailureYn}
               , #{note}
               , #{gratitudeJournal}
-              , SYSDATE
             )
     </insert>
 
