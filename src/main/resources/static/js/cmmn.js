@@ -45,75 +45,35 @@ function drawTbody(data, gubun) {
     const today = getToday();
 
     switch(gubun) {
-        //연차
-        case 'annual':
-            targetTbody = "annualBody";
+        //게시글
+        case 'board':
+            targetTbody = "boardBody";
             // foreach start
             for (let i = 0; i < data.list.length; i++) {
-				userId = data.list[i].empId;
-                //휴가자 표시
-                if (data.list[i].isHoliday === "Y") {
-					htmlData += "<tr style='background: #FA9A44'>";
-                } else {
-					htmlData += "<tr>";
-                }
+				htmlData += "<tr>";
                 htmlData += "<td>";
                 htmlData += data.list[i].no;
                 htmlData += "</td>";
                 htmlData += "<td>";
-                htmlData += data.list[i].empNm;
+                htmlData += data.list[i].recordDate;
                 htmlData += "</td>";
-                htmlData += "<td>" + data.list[i].annualStrDt;
+                htmlData += "<td>" + data.list[i].bedtime;
                 htmlData += "</td>";
-                htmlData += "<td>" + data.list[i].annualGbNm;
+                htmlData += "<td>" + data.list[i].scheduledWakeUpTime;
                 htmlData += "</td>";
-                htmlData += "<td>" + data.list[i].useAnnualNum;
+                htmlData += "<td>" + data.list[i].wakeUpTime;
                 htmlData += "</td>";
-                htmlData += "<td>" + data.list[i].grantedAnnualNum;
+                htmlData += "<td>" + data.list[i].walkYn;
                 htmlData += "</td>";
-                htmlData += "<td>" + data.list[i].useSpcAnnualNum;
+                htmlData += "<td>" + data.list[i].successFailureYn;
                 htmlData += "</td>";
-                htmlData += "<td>" + data.list[i].grantedSpcAnnualNum;
+                htmlData += "<td>" + data.list[i].note;
                 htmlData += "</td>";
-                htmlData += "<td>" + data.list[i].cfrmCompGbNm;
+                htmlData += "<td>" + data.list[i].gratitudeJournal;
                 htmlData += "</td>";
-                //연차승인자
-                if (data.list[i].annualApprEmpNm != null) {
-                    htmlData += "<td>" + data.list[i].annualApprEmpNm;
-                } else {
-                    htmlData += "<td> 자동승인";
-                }
-                htmlData += "</td>";
-
-                if (data.list[i].apprDt != "년월일") {
-                    htmlData += "<td>" + data.list[i].apprDt;
-                } else {
-                    htmlData += "<td>";
-                }
-                htmlData += "</td>";
-                htmlData += "<td>";
-
-                //신청사유 있을 경우
-                if(data.list[i].annualReqReason != null) {
-                    htmlData += "<a href='#pop01' class='pop-open' onclick='return false;'>";
-                    // htmlData += "<span class='material-icons text-red' onclick='getReason("+ data.list[i].annualSno + ',' + userId + ")'>search";
-                    htmlData += "<span class='material-icons text-red' onclick='getReason("+ data.list[i].annualSno + ")'>search";
-                    htmlData += "</span>"
-                    htmlData += "</a>";
-                }
-                //승인/반려 사유 있을 경우
-                if (data.list[i].apprCompReason != null) {
-                    htmlData += "<a href='#pop02' class='pop-open' onclick='return false;'>";
-                    // htmlData += "<span class='material-icons text-blue' onclick='getReason("+ data.list[i].annualSno + ',' + userId + ")'>search";
-                    // htmlData += "<span class='material-icons text-blue' onclick='getReason("+ data.list[i].annualSno + ")'>search";
-                    htmlData += "<span class='material-icons text-blue' onclick='getReason("+ data.list[i].annualSno + ")'>search";
-                    htmlData += "</span>"
-                    htmlData += "</a>";
-                }
-                htmlData += "</td>";
+				htmlData += "<td>" + data.list[i].regDate;
+				htmlData += "</td>";
                 htmlData += "</tr>";
-
-				$("#trId").attr("data-userid", userId);
             }
             // foreach end
         break;
