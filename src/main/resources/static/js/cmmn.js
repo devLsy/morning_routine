@@ -67,10 +67,6 @@ function drawTbody(data, gubun) {
                 htmlData += "</td>";
                 htmlData += "<td>" + data.list[i].successFailureYn;
                 htmlData += "</td>";
-                htmlData += "<td>" + data.list[i].note;
-                htmlData += "</td>";
-                htmlData += "<td>" + data.list[i].gratitudeJournal;
-                htmlData += "</td>";
 				htmlData += "<td>" + data.list[i].regDate;
 				htmlData += "</td>";
                 htmlData += "</tr>";

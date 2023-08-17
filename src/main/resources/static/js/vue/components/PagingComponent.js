@@ -10,7 +10,7 @@ Vue.component('paging-component', {
                 }
             return pagedArr;
         },
-    },  
+    },
     methods: {
        movePage(page) {
          //부모 컴포넌트에게 이벤트 발생 시켜서 page 전달
